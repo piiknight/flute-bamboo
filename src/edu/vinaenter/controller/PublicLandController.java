@@ -107,6 +107,7 @@ public class PublicLandController {
 			// Button trang sau
 			modelMap.addAttribute("next", (page + 1));
 		}
+		modelMap.addAttribute("listSlide", newsDAO.getItemsSlide());
 		return "public.land.index";
 	}
 
@@ -116,6 +117,17 @@ public class PublicLandController {
 		List<News> listNews = newsDAO.getItemsByCid(id);
 		modelMap.addAttribute("listNews", listNews);
 		modelMap.addAttribute("titleCat", categoryDAO.getItem(id).getCname());
+		
+		Category categoryNext = categoryDAO.getItemNext(id);
+		if (categoryNext == null) {
+			categoryNext = categoryDAO.getItemNext(0);
+		}
+		Category categoryPrevious = categoryDAO.getItemPrevious(id);
+		if (categoryPrevious == null) {
+			categoryPrevious = categoryDAO.getMaxItem();
+		}
+		modelMap.addAttribute("categoryNext", categoryNext);
+		modelMap.addAttribute("categoryPrevious", categoryPrevious);
 		return "public.land.cat";
 	}
 
@@ -129,8 +141,8 @@ public class PublicLandController {
 		if (newsPrevious == null) {
 			newsPrevious = newsDAO.getMaxItem();
 		}
-		modelMap.addAttribute("newsNext", newsNext.getLid());
-		modelMap.addAttribute("newsPrevious", newsPrevious.getLid());
+		modelMap.addAttribute("newsNext", newsNext);
+		modelMap.addAttribute("newsPrevious", newsPrevious);
 		modelMap.addAttribute("news", newsDAO.getItem(id));
 		modelMap.addAttribute("newsInvolve", newsDAO.getItemsInvolve(id));
 		return "public.land.detail";
@@ -142,8 +154,6 @@ public class PublicLandController {
 		if (page == null) {
 			page = 1;
 		}
-		System.out.println("search: " + search);
-		System.out.println("page: " + page);
 		int totalNews = newsDAO.countItemsSearch(search);
 		int sumPages = (int) Math.ceil((float) totalNews / Defines.ROW_COUNT_AMIN);
 		int offset = (page - 1) * Defines.ROW_COUNT_AMIN;
@@ -184,6 +194,7 @@ public class PublicLandController {
 			// Button trang sau
 			modelMap.addAttribute("next", (page + 1));
 		}
+		modelMap.addAttribute("listSlide", newsDAO.getItemsSlide());
 		return "public.land.search";
 	}
 	

@@ -62,5 +62,32 @@ public class CategoryDAO {
 		return jdbcTemplate.queryForObject(sql, new Object[] { id },
 				new BeanPropertyRowMapper<Category>(Category.class));
 	}
+	
+	public Category getItemNext(int id) {
+		String sql = "SELECT * FROM  categories WHERE cid > ? LIMIT 1";
+		try {
+			return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Category>(Category.class));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public Category getMaxItem() {
+		String sql = "SELECT * FROM  categories ORDER BY cid DESC LIMIT 1";
+		try {
+			return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Category>(Category.class));
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	public Category getItemPrevious(int id) {
+		String sql = "SELECT * FROM  categories WHERE cid < ? ORDER BY cid DESC LIMIT 1";
+		try {
+			return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<Category>(Category.class));
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 }

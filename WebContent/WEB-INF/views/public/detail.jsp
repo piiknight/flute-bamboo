@@ -11,9 +11,10 @@
 						<div class="vnecontent">
 							${news.description }
 						</div>
-						
-						<a class="btn" href="${pageContext.request.contextPath }/detail/${newsPrevious }">Bài trước</a>
-						<a class="btn" href="${pageContext.request.contextPath }/detail/${newsNext }">Bài kế</a>
+						<c:set value="${pageContext.request.contextPath }/${slugUtil.makeSlug(newsPrevious.cname) }/${slugUtil.makeSlug(newsPrevious.lname) }-${newsPrevious.lid }.htm" var="urlNewsPre"></c:set>
+						<c:set value="${pageContext.request.contextPath }/${slugUtil.makeSlug(newsNext.cname) }/${slugUtil.makeSlug(newsNext.lname) }-${newsNext.lid }.htm" var="urlNewsnext"></c:set>
+						<a class="btn" href="${urlNewsPre }">Bài trước</a>
+						<a class="btn" href="${urlNewsnext }">Bài kế</a>
 					
 					</div>
 					
@@ -21,11 +22,12 @@
 							<h2>Bất động sản liên quan <i class="fa fa-thumbs-o-up"></i></h2>
 							<div class="more_themes_container">
 								<c:forEach items="${newsInvolve }" var="news">
+								<c:set value="${pageContext.request.contextPath }/${slugUtil.makeSlug(news.cname) }/${slugUtil.makeSlug(news.lname) }-${news.lid }.htm" var="urlNews"></c:set>
 								<div class="single_more_themes floatleft">
 									<c:if test="${not empty news.picture }">
 									<img src="${pageContext.request.contextPath }/files/${news.picture }" alt=""/>
 									</c:if>
-									<a href="${pageContext.request.contextPath }/detail/${news.lid }"><h2>${news.lname }</h2></a>
+									<a href="${urlNews }"><h2>${news.lname }</h2></a>
 								</div>
 								</c:forEach>
 

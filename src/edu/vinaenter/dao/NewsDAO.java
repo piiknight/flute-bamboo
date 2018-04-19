@@ -21,6 +21,11 @@ public class NewsDAO {
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<News>(News.class));
 	}
 	
+	public List<News> getItemsSlide() {
+		String sql = "SELECT l.*, c.cname FROM lands AS l INNER JOIN categories AS c ON l.cid = c.cid ORDER BY l.count_views DESC LIMIT 4";
+		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<News>(News.class));
+	}
+	
 	public List<News> getItemsByCid(int id) {
 		String sql = "SELECT l.*, c.cname FROM lands AS l INNER JOIN categories AS c ON l.cid = c.cid WHERE c.cid = ? "
 				+ "ORDER BY l.lid DESC";
@@ -53,7 +58,7 @@ public class NewsDAO {
 	}
 	
 	public News getItemNext(int id) {
-		String sql = "SELECT * FROM lands WHERE lid > ? LIMIT 1";
+		String sql = "SELECT l.*, c.cname FROM lands AS l INNER JOIN categories AS c ON l.cid = c.cid WHERE lid > ? LIMIT 1";
 		try {
 			return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<News>(News.class));
 		} catch (Exception e) {
@@ -62,7 +67,7 @@ public class NewsDAO {
 	}
 	
 	public News getMaxItem() {
-		String sql = "SELECT * FROM lands ORDER BY lid DESC LIMIT 1";
+		String sql = "SELECT l.*, c.cname FROM lands AS l INNER JOIN categories AS c ON l.cid = c.cid ORDER BY l.lid DESC LIMIT 1";
 		try {
 			return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<News>(News.class));
 		} catch (Exception e) {
@@ -71,7 +76,7 @@ public class NewsDAO {
 	}
 	
 	public News getItemPrevious(int id) {
-		String sql = "SELECT * FROM lands WHERE lid < ? ORDER BY lid DESC LIMIT 1";
+		String sql = "SELECT l.*, c.cname FROM lands AS l INNER JOIN categories AS c ON l.cid = c.cid WHERE l.lid < ? ORDER BY lid DESC LIMIT 1";
 		try {
 			return jdbcTemplate.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<News>(News.class));
 		} catch (Exception e) {

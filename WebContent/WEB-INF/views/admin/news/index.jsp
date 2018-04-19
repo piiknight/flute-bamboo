@@ -18,14 +18,7 @@
             <a href="${pageContext.request.contextPath }/admin/news/add" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Thêm</a>
 
         </div>
-        <div class="col-md-4">
-            <div class="input-group form">
-                <input type="text" class="form-control" placeholder="Search...">
-                <span class="input-group-btn">
-         <button class="btn btn-primary" type="button">Search</button>
-       </span>
-            </div>
-        </div>
+        
     </div>
 
     <div class="row">

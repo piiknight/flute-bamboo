@@ -6,6 +6,7 @@
 	
 	<div class="clearfix single_work_container">
 		<c:forEach items="${listNews }" var="news">
+		<c:set value="${pageContext.request.contextPath }/${slugUtil.makeSlug(news.cname) }/${slugUtil.makeSlug(news.lname) }-${news.lid }.htm" var="urlNews"></c:set>
 		<div class="clearfix single_work">
 			<c:choose>
 				<c:when test="${not empty news.picture }">
@@ -18,16 +19,17 @@
 			
 			<img class="img_bottom" src="${pageContext.request.contextPath }/templates/public/images/work_bg2.png" alt=""/>
 			<h2>${news.lname }</h2>
-			<a href="${pageContext.request.contextPath }/detail/${news.lid }"><p class="caption">${stringUtil.cutDescription(news.description, 80) }</p></a>
+			<a href="${urlNews }"><p class="caption">${stringUtil.cutDescription(news.description, 80) }</p></a>
 		</div>
 		</c:forEach>
-		<div class="clearfix work_pagination">
-			<nav>
-				<a class="newer floatleft" href=""> < -- Trang trước</a>
-				<a class="older floatright" href="">Trang sau -- ></a>
-			</nav>
-		</div>
-
+		<div class="clearfix"></div>
+		
+	</div>
+	<c:set value="${pageContext.request.contextPath }/${slugUtil.makeSlug(categoryNext.cname) }-${categoryNext.cid }.htm" var="urlCatPre"></c:set>
+	<c:set value="${pageContext.request.contextPath }/${slugUtil.makeSlug(categoryPrevious.cname) }-${categoryPrevious.cid }.htm" var="urlCatNext"></c:set>
+	<div>
+	<a class="btn" href="${urlCatPre }">Trang trước</a>
+	<a class="btn" href="${urlCatNext }">Trang kế</a>
 	</div>
 </div>
 		

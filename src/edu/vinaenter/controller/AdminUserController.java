@@ -106,7 +106,7 @@ public class AdminUserController {
 		}
 		if (userDAO.getItem(user.getUsername()) != null) {
 			flash = new Flash("danger", Defines.ERROR);
-			 ra.addFlashAttribute("flash", flash);
+			ra.addFlashAttribute("flash", flash);
 			return "redirect:/admin/user/add";
 		} else {
 			user.setPassword(encoder.encode(user.getPassword()));

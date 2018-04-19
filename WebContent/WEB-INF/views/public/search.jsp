@@ -3,11 +3,9 @@
 <%@include file="/templates/taglib.jsp" %>
 <div class="clearfix slider">
                     <ul class="pgwSlider">
-                        <li><img src="${defines.urlPublic }/images/thumbs/megamind_07.jpg" alt="Paris, France" data-description="Eiffel Tower and Champ de Mars" data-large-src="${defines.urlPublic }/images/slides/megamind_07.jpg" /></li>
-                        <li><img src="${defines.urlPublic }/images/thumbs/wall-e.jpg" alt="Montréal, QC, Canada" data-large-src="${defines.urlPublic }/images/slides/wall-e.jpg" data-description="Eiffel Tower and Champ de Mars" /></li>
-                        <li>
-                            <img src="${defines.urlPublic }/images/thumbs/up-official-trailer-fake.jpg" alt="Shanghai, China" data-large-src="${defines.urlPublic }/images/slides/up-official-trailer-fake.jpg" data-description="Shanghai ,chaina">
-                        </li>
+                        <c:forEach items="${listSlide }" var="slide">
+						<li><img src="${pageContext.request.contextPath }/files/${slide.picture }" alt="Montréal, QC, Canada" data-large-src="${pageContext.request.contextPath }/files/${slide.picture }" data-description="${slide.lname }" /></li>
+						</c:forEach>
 
 
                     </ul>

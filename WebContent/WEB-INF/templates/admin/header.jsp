@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%><!DOCTYPE html>
-<html>
-  <head>
-    <title>Bootstrap Admin Theme v3</title>
+
     <link rel="shortcut icon" type="image/ico" href="images/icon-180x180.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -41,7 +39,7 @@
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
 	                      <li class="dropdown">
-	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chào ${userInfo.fullname } <b class="caret"></b></a>
+	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${userInfo.fullname } <b class="caret"></b></a>
 	                        <ul class="dropdown-menu animated fadeInUp">
 	                          <li><a href="${pageContext.request.contextPath }/admin/profile">Profile</a></li>
 	                          <li><a href="${pageContext.request.contextPath }/auth/logout">Logout</a></li>
