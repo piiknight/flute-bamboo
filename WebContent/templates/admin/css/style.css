@@ -1,0 +1,229 @@
+body {
+	font-family: -webkit-body;
+}
+.card-add {
+	width: 20%;
+	background-color: white;
+	float: left;
+	margin-left: 20px;
+	border: 1px solid #EB5E28;
+	/* transition: transform 1.5s; */
+}
+/* .card-add:hover {
+	transform: rotateY(360deg);
+} */
+.card-add a {
+}
+.card-add a img {
+	width: 100%;
+	height:  auto;
+	display: block;
+	margin: 0px auto;
+}
+.card-add a p {
+	text-align: center;
+	margin-top: 5px;
+}
+.introduce {
+	width: 60%;
+	background-color: white;
+	float: left;
+	border-radius: 15px;
+	margin-left: 50px;
+	padding-bottom: 15px;
+}
+.introduce-title {
+	background-color: #EB5E28;
+	border-radius: 10px 10px 0px 0px;
+}
+.introduce-title p {
+	text-align: center;
+	line-height:  50px;
+	font-size: 25px;
+	color: white;
+}
+.introduce-content {
+	padding: 20px 35px;
+	height: 160px;
+}
+.introduce-content p {
+	font-size: 20px;
+}
+.add-item {
+	float: left;
+    margin: 20px;
+}
+.add-item span {
+	font-size: 20px;
+}
+.frame-content {
+	padding: 25px;
+}
+.my-input {
+	border-radius: 5px;
+    display: block;
+    margin-bottom: 15px;
+    height: 35px;
+    width: 40%;
+}
+.my-input-preview {
+	border-radius: 5px;
+    display: block;
+    margin-bottom: 15px;
+}
+.my-form .error {
+	color: red;
+}
+.my-form label {
+	display: block;
+}
+h3.title-w3-agile {
+    color: #000;
+    font-size: 3em;
+    letter-spacing: 1px;
+    text-align: left;
+    position: relative;
+    margin-bottom: 1em;
+}
+h3.title-w3-agile:before {
+    content: "";
+    width: 70px;
+    height: 2px;
+    display: block;
+    background: #000;
+    position: absolute;
+    left: 20px;
+    bottom: -9px;
+}
+h3.title-w3-agile:after {
+    content: "";
+    width: 120px;
+    height: 2px;
+    display: block;
+    background: #ff6b6b;
+    position: absolute;
+    top: 56px;
+}
+.my_pagination {
+    font-family: normal;
+    border: 1px solid;
+    float: right;
+}
+.my_pagination span {
+    font-family:  Dancing Script;
+    float: left;
+    padding: 8px 16px;
+    margin-top: 5px;
+}
+.my_pagination a {
+    color: black;
+    padding: 8px 16px;
+    float: left;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+.my_pagination a.active {
+    background-color: #EB5E28;
+    color: white;
+}
+
+.my_pagination a:hover:not(.active) {background-color: #ddd;}
+.right-area {
+	margin-right: 50px;
+	float: right;
+	width: 30%;
+}
+.right-area img {
+	width: 278px;
+    height: 184px;
+    border-radius: 5px;
+    padding: 0px;
+    border: 2px solid #EB5E28;
+}
+.left-area {
+	width: 50%;
+    float: left;
+}
+.detail {
+	font-size: 20px;
+    color: #66615b;
+    margin: 25px 0px 0px 20px;
+}
+.block-error {
+	margin-left: 300px
+}
+.block-error h2 {
+	color: red;
+}
+.block-error img {
+	width: 80%;
+}
+@-webkit-keyframes hover-home {
+  16.65% {
+    -webkit-transform: translate(8px, 8px);
+    transform: translate(8px, 8px);
+  }
+  33.3% {
+    -webkit-transform: translate(-6px, -6px);
+    transform: translate(-6px, -6px);
+  }
+  49.95% {
+    -webkit-transform: translate(4px, 4px);
+    transform: translate(4px, 4px);
+  }
+  66.6% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  83.25% {
+    -webkit-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes hover-home {
+  16.65% {
+    -webkit-transform: translate(8px, 8px);
+    transform: translate(8px, 8px);
+  }
+  33.3% {
+    -webkit-transform: translate(-6px, -6px);
+    transform: translate(-6px, -6px);
+  }
+  49.95% {
+    -webkit-transform: translate(4px, 4px);
+    transform: translate(4px, 4px);
+  }
+  66.6% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);
+  }
+  83.25% {
+    -webkit-transform: translate(1px, 1px);
+    transform: translate(1px, 1px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+.hover-home {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hover-home {
+  -webkit-animation-name: hvr-wobble-to-bottom-right;
+  animation-name: hvr-wobble-to-bottom-right;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}

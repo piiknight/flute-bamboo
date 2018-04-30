@@ -10,23 +10,72 @@
 		<intercept-url pattern="/admin"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
 			
-		<intercept-url pattern="/admin/cat/add"
+		<intercept-url pattern="/admin/flute-list/add"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />	
 			
-		<intercept-url pattern="/admin/cat/news"
+		<intercept-url pattern="/admin/flute-list/edit/**"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
 			
-		<intercept-url pattern="/admin/news"
+		<intercept-url pattern="/admin/flute-list/del/**"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/admin/flute-list/del/delete-all"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+			
+		<intercept-url pattern="/admin/flute-list"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
+	
+		<intercept-url pattern="/admin/flute-list/**"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
 			
-		<intercept-url pattern="/admin/news/**"
+		<intercept-url pattern="/admin/flute/add"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/admin/flute/edit/**"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+	
+		<intercept-url pattern="/admin/flute/del/**"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/admin/flute/del/delete-all"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+		
+		<intercept-url pattern="/admin/flute"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
 			
+		<intercept-url pattern="/admin/flute/**"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
+			
+		<intercept-url pattern="/admin/user"
+			access="hasAnyRole('ROLE_ADMIN')" />
+			
+		<intercept-url pattern="/admin/user/**"
+			access="hasAnyRole('ROLE_ADMIN')" />
+			
+		<intercept-url pattern="/admin/bill"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')" />
+			
+		<intercept-url pattern="/admin/bill/**"
+			access="hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')" />
+			
+		<intercept-url pattern="/admin/code"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+			
+		<intercept-url pattern="/admin/code/**"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')" />
+			
+		<intercept-url pattern="/admin/payment"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
+			
+		<intercept-url pattern="/admin/payment/**"
+			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
+		
 		<intercept-url pattern="/admin/profile"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
 			
-		<intercept-url pattern="/admin/cat"
+		<intercept-url pattern="/admin/profile/**"
 			access="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN', 'ROLE_USER')" />
+		
 			
 		<intercept-url pattern="/admin/**"
 			access="hasRole('ROLE_ADMIN')" />

@@ -7,10 +7,10 @@
 </script>
 <tiles:insertAttribute name="header"></tiles:insertAttribute>
 <!-- /.header -->
-    <div class="page-content">
-    	<tiles:insertAttribute name="body"></tiles:insertAttribute>
-    </div><!-- /.page-content -->
+<div class="page-content">
+	<tiles:insertAttribute name="body"></tiles:insertAttribute>
+</div><!-- /.page-content -->
 
-    <!-- Footer -->
-   <tiles:insertAttribute name="footer"></tiles:insertAttribute>
-    <!-- /.footer -->
+<!-- Footer -->
+<tiles:insertAttribute name="footer"></tiles:insertAttribute>
+<!-- /.footer -->

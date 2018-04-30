@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         ">
 	<mvc:annotation-driven />
-	<context:component-scan base-package="edu.vinaenter.controller, edu.vinaenter.dao" />
+	<context:component-scan base-package="com.tieusao.controller, com.tieusao.dao" />
 
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
@@ -28,17 +28,19 @@
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 	</bean>
 
-	<bean class="edu.vinaenter.util.SlugUtil"></bean>
-	<bean class="edu.vinaenter.util.StringUtil"></bean>
+	<bean class="com.tieusao.util.SlugUtil"></bean>
+	<bean class="com.tieusao.util.StringUtil"></bean>
+	<bean class="com.tieusao.util.SupportUtil"></bean>
 
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<!-- one of the properties available; the maximum file size in bytes -->
 		<property name="maxUploadSize" value="10000000" />
 	</bean>
-	<bean id="defines" class="edu.vinaenter.constant.Defines">
-		<property name="urlPublic" value="/Cland/templates/public"></property>
-		<property name="urlAdmin" value="/Cland/templates/admin"></property>
+	<bean id="defines" class="com.tieusao.constant.Defines">
+		<property name="urlPublic" value="/tieusao/templates/public"></property>
+		<property name="urlAdmin" value="/tieusao/templates/admin"></property>
+		<property name="urlAuth" value="/tieusao/templates/auth"></property>
 		<property name="superAdmin" value="admin"></property>
 	</bean>
 	

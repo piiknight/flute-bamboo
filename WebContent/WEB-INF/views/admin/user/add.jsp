@@ -1,50 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/templates/taglib.jsp" %>
-<form action="" method="post">
-<div class="row">
-      <div class="col-md-12 panel-info">
-          <div class="content-box-header panel-heading">
-              <div class="panel-title ">Thêm user</div>
-          </div>
-          <div class="content-box-large box-with-header">
-              <div>
-                  <div class="row mb-10"></div>
-				  <c:if test="${not empty flash }">
-					 <div class="alert alert-${flash.key }">
-					 	 <strong>${flash.key }!</strong>${flash.value }
-					 </div>
-				  </c:if>
-				  <form:errors path="user.*" cssClass="alert alert-danger"></form:errors>
-                  <div class="row">
-                      <div class="col-sm-6">
-                          <div class="form-group">
-                              <label for="username">Username</label>
-                              <input type="text" name="username" class="form-control" placeholder="Nhập Username" value="${user.username }">
-                              <label for="password">Password</label>
-                              <input type="password" name="password" class="form-control" placeholder="Nhập Password">
-                              <label for="fullname">Fullname</label>
-                              <input type="text" name="fullname" class="form-control" placeholder="Nhập Fullname" value="${user.fullname }">
-                              <label>Quyền</label>
-                              <select name="role_id" class="form-control">
-                              	  <c:forEach items="${roles }" var="obj">
-								  <option  ${(user.role_id == obj.role_id)?"selected":"" } value="${obj.role_id }" >${obj.name }</option>
-								  </c:forEach>
-							   </select>
-                          </div>
-
-                         </div>
-                     </div>
-                     <hr>
-                     <div class="row">
-                         <div class="col-sm-12">
-                             <input type="submit" value="Thêm" class="btn btn-success" />
-                             <input type="reset" value="Nhập lại" class="btn btn-default" />
-                         </div>
-                     </div>
-
-                 </div>
-             </div>
+<%@include file="/templates/taglib.jsp" %>  
+<div class="main-panel">
+   <div class="content">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="card">
+                  <div class="header">
+                     <h3 class="title-w3-agile">Thêm mới Người dùng</h3>
+                  </div>
+                  
+                  <div class="frame-content">
+                  	 <a href="${pageContext.request.contextPath }/admin/user" class="btn btn-primary">Trở về</a>
+                  	 <br /><br />
+                  	 <c:if test="${not empty flash }">
+	                    <div class="alert alert-${flash.key }">
+	                       <strong>${flash.key }!</strong>${flash.value }
+	                    </div>
+	                 </c:if>
+	                 
+                     <form id="form-add" class="my-form" action="" method="post" enctype="multipart/form-data">
+                     	
+                        <label>Username: </label>
+                        <form:errors path="user.username" cssClass="alert alert-danger"></form:errors>
+                        <input type="text" name="username" value="${user.username }" class="my-input"/>
+                        
+                        <label>Mật khẩu: </label>
+                        <form:errors path="user.password" cssClass="alert alert-danger"></form:errors>
+                        <input type="password" name="password" value="" class="my-input"/>
+                        
+                        <label>Xác nhận mật khẩu: </label>
+                        <form:errors path="user.validPass" cssClass="alert alert-danger"></form:errors>
+                        <input type="password" name="repass" value="" class="my-input"/>
+                        
+                        <label>Họ và tên: </label>
+                        <form:errors path="user.fullname" cssClass="alert alert-danger"></form:errors>
+                        <input type="text" name="fullname" value="${user.fullname }" class="my-input"/>
+                        
+                        <label>Địa chỉ: </label>
+                        <form:errors path="user.address" cssClass="alert alert-danger"></form:errors>
+                        <input type="text" name="address" value="${user.address }" class="my-input"/>
+                        
+                        <label>Phone: </label>
+                        <form:errors path="user.phone" cssClass="alert alert-danger"></form:errors>
+                        <input type="text" name="phone" value="${user.phone }" class="my-input"/>
+                        
+                        <label>Email: </label>
+                        <form:errors path="user.email" cssClass="alert alert-danger"></form:errors>
+                        <input type="text" name="email" value="${user.email }" class="my-input"/>
+                        
+                        <label>Roles: </label>
+                        <select name="role_id" class="my-input">
+                        	<c:forEach items="${roles }" var="role">
+                        		<option value="${role.role_id }"  >${role.name }</option>
+                        	</c:forEach>
+                        </select>
+                        
+                        <input type="submit" name="them" value="Thêm" class="btn btn-primary">
+                        <input type="reset" name="reset" value="Nhập lại" class="btn btn-primary">
+                     </form>
+                     
+                  </div>
+               </div>
+            </div>
          </div>
-     </div>
-</form>
+      </div>
+   </div>
+</div>
+<script>
+   var editor= CKEDITOR.replace('editor');
+   CKFinder.setupCKEditor(editor, '<%=request.getContextPath()%>/templates/admin/js/ckfinder/');
+</script>
+<div class="clearfix">...</div>
